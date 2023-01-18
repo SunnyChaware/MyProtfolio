@@ -2,9 +2,13 @@ import './App.css';
 import Footer from './components/Footer.js';
 import MyImage from './assests/MyImage1.png';
 
+import Nav from './components/Nav.js'
 function App() {
   return (
     <>
+        {/* Nav Section */}
+        <Nav />
+
         {/* Header Section */}
         <section id="home">
             <div class="homeWrapper columns-1 md:columns-2">
