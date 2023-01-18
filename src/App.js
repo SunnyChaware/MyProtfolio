@@ -1,27 +1,24 @@
 import './App.css';
 import Footer from './components/Footer.js';
-import MyImage from './assests/MyImage.png';
+import MyImage from './assests/MyImage1.png';
 
 function App() {
   return (
     <>
         {/* Header Section */}
         <section id="home">
-            {/* <div className='container'>
-                <div className='flex flex-col md:flex-row justify-center px-2'>
-                    <div > a </div>
-                    <div > b </div>
-                </div>
-            </div> */}
-
-
             <div class="homeWrapper columns-1 md:columns-2">
-                <div className='w-full px-10 bg-green-100'>
-                    <text>Hey there! <br/> I'am Sunny Chaware</text>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                <div className=' homeMyText'>
+                    <text className='homeMyTextHeading'>👋 <br/>Hello, I'am <span className='HomeNameFont'>Sunny Chaware </span></text>
+                    <p className='homeMyTextBody'>
+                        I am a Frontend developer, aspiring to be a Softwaare Enginner. 
+                        Currently pursuing <strong>Masters of Computer of Applications</strong> 
+                        from <strong>National Institute of Technology Karnataka, Surathkal</strong>.
+                    </p>
                 </div>
-                <div className='w-full px-10 bg-red-100'>
-                    <img className='drop-shadow-2xl homeMyImage' src={MyImage} alt='My Logo' width="65%" height="65%" />
+                <div className=' px-10'>
+                    <img className='drop-shadow-2xl homeMyImage' src={MyImage} 
+                    alt='My Logo' width="450px" height="450px" />
                 </div>
             </div>
         </section>
