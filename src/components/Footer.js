@@ -10,13 +10,13 @@ function Footer() {
 
 
                 {/* logo on the top of the footer section */}
-                <div class="flex flex-col md:flex-row justify-center py-3">
+                <div class="flex flex-col md:flex-row justify-center py-3 footerImageSection">
                     <img src={logo} alt='My Logo' width={75} height={75} />
                 </div>
                
 
                 {/* list items for links */}
-                <div className='flex flex-col md:flex-row justify-center px-2'>
+                <div className='flex flex-col justify-center md:flex-row px-2 footerLinkSection'>
                     <div className='btn footerLinkItem px-6 py-1'><a href='aboutSection'>  ABOUT ME </a></div>
                     <div className='btn footerLinkItem px-6 py-1'><a href="workSection">WORK </a></div>
                     <div className='btn footerLinkItem px-6 py-1'><a href="resume">RESUME</a></div>
