@@ -24,6 +24,10 @@ function Footer() {
                 </div>
 
 
+                {/* <div id="wcb" class="carbonbadge"></div> */}
+                {/* <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script> */}
+
+
                 {/* copyright section */}
                 <div className='flex justify-center footerCopyrightSection text-sm'>
                     &copy; Sunny Chaware | 2023

@@ -1,19 +1,21 @@
 import './App.css';
-import Footer from './components/Footer.js';
-import MyImage from './assests/MyImage1.png';
+// import Footer from './components/Footer.js';
+// import MyImage from './assests/MyImage1.png';
+// import Nav from './components/Nav.js'
 
-import Nav from './components/Nav.js'
+import AboutMe from './components/AboutMe';
 function App() {
   return (
     <>
+        <AboutMe />
         {/* Nav Section */}
-        <Nav />
+        {/* <Nav /> */}
 
         {/*  sticky social media icons */}
-        <div className='flex'></div>
+        {/* <div className='flex'></div> */}
 
         {/* Header Section */}
-        <section id="home">
+        {/* <section id="home">
             <div class="homeWrapper columns-1 md:columns-2">
                 <div className=' homeMyText'>
                     <text className='homeMyTextHeading'>👋 <br/>Hello, I'am <span className='HomeNameFont'>Sunny Chaware </span></text>
@@ -31,10 +33,10 @@ function App() {
                     alt='My Logo' width="450px" height="450px" />
                 </div>
             </div>
-        </section>
+        </section> */}
 
         {/* Footer for every Component */}
-        <Footer />
+        {/* <Footer /> */}
     </>
   );
 }
