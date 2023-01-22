@@ -1,5 +1,5 @@
 import './App.css';
-// import Footer from './components/Footer.js';
+import Footer from './components/Footer.js';
 // import MyImage from './assests/MyImage1.png';
 // import Nav from './components/Nav.js'
 
@@ -36,7 +36,7 @@ function App() {
         </section> */}
 
         {/* Footer for every Component */}
-        {/* <Footer /> */}
+        <Footer />
     </>
   );
 }
