@@ -1,16 +1,17 @@
 import './App.css';
 import Footer from './components/Footer.js';
 // import MyImage from './assests/MyImage1.png';
-// import Nav from './components/Nav.js'
+import Nav from './components/Nav.js'
 
 import AboutMe from './components/AboutMe';
 function App() {
   return (
     <>
-        <AboutMe />
+        
         {/* Nav Section */}
-        {/* <Nav /> */}
-
+        <Nav />
+        
+        <AboutMe />
         {/*  sticky social media icons */}
         {/* <div className='flex'></div> */}
 
