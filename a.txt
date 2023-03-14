@@ -1,0 +1,305 @@
+// crc code sender side
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+string data,crc;
+cin>>data>>crc;
+int size=crc.size()-1;
+for(int i=0;i<size;i++){
+    data+='0';
+}
+string s1="";
+for(int i=0;i<crc.size();i++){
+    s1+=data[i];
+}
+int i=crc.size();
+while(i<data.size()){
+    int count=0;
+    int j=0;
+    while(j<s1.size()&&s1[j]==crc[j]){
+        count++;
+        j++;
+    }
+    string temp="";
+    while(j<s1.size()){
+       if(s1[j]!=crc[j]){
+        temp+='1';
+       }
+       else{
+        temp+='0';
+       }
+       j++;
+    }
+    for(int k=0;k<count&&i<data.size();k++){
+        temp+=data[i];
+        i++;
+    }
+    s1=temp;
+}
+cout<<s1<<endl;
+return 0;
+}
+
+// port scanner
+
+import java.net.*;
+
+public class PortScanner {
+
+    public static void main(String[] args) {
+
+        for(int port =1; port <= 65535; port++){
+            try{
+                Socket socket = new Socket();
+                socket.connect(new InetSocketAddress("localhost",port),1000);
+                socket.close();
+                System.out.println("Port "+ port + " is open.");
+            }
+            catch (Exception ex){}
+        }
+    }
+}
+
+// dns in java
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+class HelloWorld {
+    public static void main(String[] args){
+        String host = "www.google.com";
+        try{
+            InetAddress[] iaddress = InetAddress.getAllByName(host);
+            
+            for(InetAddress i: iaddress)
+            {
+                System.out.println(i.toString());
+            }
+        }
+        catch(UnknownHostException e){
+            System.out.println(e);
+        }
+    }
+}
+
+
+
+// hamming code
+#include<bits/stdc++.h>
+using namespace std;
+int detection(vector<char>pr){
+  int i=0;
+   int pos=0;
+   while(pow(2,i)<pr.size()){
+      int d=pow(2,i);
+      int j=d;
+      int count1=0;
+      while(j<pr.size()){
+        int mini=0;
+        int maxi=d;
+        while(j<pr.size() &&maxi>mini){
+            if(pr[j]=='1'){
+              count1++;
+              }
+            j++;
+            mini++;
+        }
+        j=j+d;
+      }
+    
+      if(count1%2){
+          pos+=d;
+          // pr[d]='1';
+        }
+      i++;
+   }
+   return pos;
+}
+int main()
+{
+    string s;
+    cin>>s;
+    int m=s.size();
+   int r=1;
+   while(pow(2,r)<m+r+1){
+    r++;
+   }
+   vector<char>pr(m+r+1,'0');
+   int count=0;
+   for(int i=1;i<=m+r;i++){
+       if(i&(i-1)){
+        pr[i]=s[count];
+        count++;
+       }
+       else{
+        pr[i]='0';
+       }
+   }
+   int i=0;
+   
+   while(pow(2,i)<=m+r){
+      int d=pow(2,i);
+      int j=d;
+      int count1=0;
+      while(j<m+r+1){
+        int mini=0;
+        int maxi=d;
+        while(j<m+r+1 &&maxi>mini){
+            if(pr[j]=='1'){
+              count1++;
+              }
+            j++;
+            mini++;
+        }
+        j=j+d;
+      }
+    //  cout<<endl;
+      if(count1%2){
+      //  cout<<count1<<" "<<d<<endl;
+           pr[d]='1';
+        }
+      i++;
+   }
+
+   for(int i=1;i<pr.size();i++){
+    cout<<pr[i]<<" ";
+   }
+   cout<<"enter your recieved data"<<endl;
+  vector<char>rec;
+  for(int i=0;i<m+r+1;i++){
+     char d;
+     cin>>d;
+     rec.push_back(d); 
+  }
+   //cin>>rec;
+   int pos=detection(rec);
+   if(pos==0){
+    cout<<"no error"<<endl;
+   }
+   else{
+    cout<<"error is at "<<pos<<endl;
+   }
+return 0;
+}
+
+
+
+// go back n
+#include<bits/stdc++.h>
+//#include<window.h>
+using namespace std;
+int main(){
+    int n,w;
+    cout<<"enter total number of frame "<<endl;
+    cin>>n;
+    cout<<"enter your window size"<<endl;
+    cin>>w;
+    int i=1;
+    while(i<=n){
+        for(int j=i;j<i+w&&j<=n;j++){
+            cout<<"sending the frame"<<" "<<j<<endl;
+        }
+        int p=i;
+        sleep(4);
+        for(int j=i;j<i+w&&j<=n;j++){
+            if(rand()%2){
+                cout<<"acknowledgement received for frame"<<" "<<j<<endl;
+                p=j+1;
+            }
+            else{
+                cout<<"time out not received"<<endl;
+                p=j;
+                break;
+            }
+        }
+        i=p;
+    }
+}
+
+//stop and wait
+#include<iostream>
+#include <time.h>
+#include <cstdlib>
+#include<ctime>
+#include <unistd.h>
+using namespace std;
+class timer {
+    private:
+     unsigned long begTime;
+    public:
+     void start() {
+      begTime = clock();
+     }
+  unsigned long elapsedTime() {
+      return ((unsigned long) clock() - begTime) / CLOCKS_PER_SEC;
+    }
+   bool isTimeout(unsigned long seconds) {
+      return seconds >= elapsedTime();
+     }
+};
+int main()
+{
+ int frames[] = {1,2,3,4,5,6,7,8,9,10};
+ unsigned long seconds = 5;
+ srand(time(NULL));
+ timer t;
+ cout<<"Sender has to send frames : ";
+ for(int i=0;i<10;i++)
+     cout<<frames[i]<<" ";
+ cout<<endl;
+ int count = 0;
+ bool delay = false;
+ cout<<endl<<"Sender\t\t\t\t\tReceiver"<<endl;
+ do
+ {
+     bool timeout = false;
+     cout<<"Sending Frame : "<<frames[count];
+     cout.flush();
+     cout<<"\t\t";
+     t.start();
+     if(rand()%2)
+     {
+         int to = 24600 + rand()%(64000 - 24600)  + 1;
+         for(int i=0;i<64000;i++)
+             for(int j=0;j<to;j++) {}
+     }
+     if(t.elapsedTime() <= seconds)
+     {
+         cout<<"Received Frame : "<<frames[count]<<" ";
+         if(delay)
+         {
+             cout<<"Duplicate";
+             delay = false;
+         }
+         cout<<endl;
+         count++;
+     }
+     else
+     {
+         cout<<"---"<<endl;
+         cout<<"Timeout"<<endl;
+         timeout = true;
+     }
+     t.start();
+     if(rand()%2 || !timeout)
+     {
+         int to = 24600 + rand()%(64000 - 24600)  + 1;
+         for(int i=0;i<64000;i++)
+             for(int j=0;j<to;j++) {}
+         if(t.elapsedTime() > seconds )
+         {
+             cout<<"Delayed Ack"<<endl;
+             count--;
+             delay = true;
+         }
+         else if(!timeout)
+             cout<<"Acknowledgement : "<<frames[count]-1<<endl;
+     }
+ }while(count!=10);
+ return 0;
+}
+
+
