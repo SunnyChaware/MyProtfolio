@@ -302,4 +302,79 @@ int main()
  return 0;
 }
 
+//byte stuffing 
 
+#include <bits/stdc++.h>
+#include<string.h>
+using namespace std;
+int main() {
+    vector<string>frame;
+    vector<string>str;
+    string flag="flag";
+    //strcpy(flag,"flag");
+    string esc="esc";
+   // strcpy(esc,"esc");
+   cout<<"enter size of data"<<endl;
+   int n;
+   cin>>n;
+   for(int i=0;i<n;i++){
+       string s;
+       cin>>s;
+       str.push_back(s);
+   }
+   cout<<"your data is"<<endl;
+   for(int i=0;i<n;i++){
+       cout<<str[i]<<endl;
+   }
+   frame.push_back("flag");
+   for(int i=0;i<n;i++){
+       if(str[i]!="flag" &&str[i]!="esc"){
+           
+       }
+   }
+    return 0;
+}
+
+// bit stuffing
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n;
+    cout<<"enter size of data"<<endl;
+    cin>>n;
+    vector<int>arr;
+    for(int i=0;i<n;i++){
+        int num;
+        cin>>num;
+        arr.push_back(num);
+    }
+    int i=0;
+    //int j=0;
+    vector<int>ans;
+    while(i<arr.size()){
+        if(arr[i]==1){
+            ans.push_back(1);
+            
+            int k=i+1;
+            int count=1;
+            for(k=i+1;k<arr.size() &&count<5&&arr[k]==1;k++){
+               ans.push_back(1);
+               count++;
+            }
+            if(count==5){
+                ans.push_back(0);
+            }
+            i=k;
+        }
+        else{
+            ans.push_back(arr[i]);
+            i++;
+        }
+        
+    }
+    cout<<"ouput :"<<endl;
+  for(int i=0;i<ans.size();i++){
+      cout<<ans[i]<<" ";
+  }
+    return 0;
+}
