@@ -1,0 +1,18 @@
+.abtMeContentWrapper{
+    padding: 5%;
+    font-size: 1.2rem;
+}
+.contentLeft{
+    padding-left: 10%;
+}
+.contentRight{
+    font-size: .9rem;
+    padding-right: 10%;
+    margin-left: -3%;
+    color: rgb(147, 146, 146);
+    /* color: rgb(98, 98, 98); */
+    
+}
+.abtIcons a{
+    margin-right: 5%;
+}

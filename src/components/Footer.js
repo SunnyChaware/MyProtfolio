@@ -7,8 +7,6 @@ function Footer() {
     <>
         <div className='footerWrapper px-10 font-medium'>
            <div className='container'>
-
-
                 {/* logo on the top of the footer section */}
                 <div class="flex flex-col md:flex-row justify-center py-3 footerImageSection">
                     <img src={logo} alt='My Logo' width={75} height={75} />
