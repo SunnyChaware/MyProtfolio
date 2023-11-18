@@ -3,16 +3,41 @@
     font-size: 1.2rem;
 }
 .contentLeft{
-    padding-left: 10%;
+    padding-right: 10%;
 }
 .contentRight{
-    font-size: .9rem;
+    font-size: 1rem;
     padding-right: 10%;
     margin-left: -3%;
     color: rgb(147, 146, 146);
     /* color: rgb(98, 98, 98); */
     
 }
+.abtIcons{
+    display: flex;
+}
 .abtIcons a{
+    margin-top: 3%;
     margin-right: 5%;
 }
+.aboutTextHeadingColor{
+    color: rgb(63, 61, 61);
+}
+
+
+@media only screen and (max-width: 768px){
+    .contentRight{
+        margin-top: 5%;
+        margin-left: 0;
+    }
+  }
+
+  @media only screen and (max-width: 500px){
+    .contentLeft{
+        margin-left: -18%;
+    }
+    .contentRight{
+        margin-top: 5%;
+        margin-left: -18%;
+    }
+  }
